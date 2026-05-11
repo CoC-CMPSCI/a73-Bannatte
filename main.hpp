@@ -12,7 +12,48 @@ void printout(int[], int);
 
 void shiftleft(int number[], int SIZE, int count)
 {
+	if (SIZE == 0) {
+		return;
+	}
+
+	if ((count %= SIZE) == 0) {
+		return;
+	}
+
+	int start = 0;
+	int end = count - 1;
+	while (start < end) {
+		int tmp = number[start]; // creates tempory variable to hold value during the swap
+		number[start] = number[end];
+		number[end] = tmp;
+
+		start++;
+		end--;
+	}
+
+	start = count;
+	end = SIZE - 1;
+	while (start < end) {
+		int tmp = number[start]; // creates tempory variable to hold value during the swap
+		number[start] = number[end];
+		number[end] = tmp;
+
+		start++;
+		end--;
+	}
+
+	start = 0;
+	end = SIZE - 1;
+	while (start < end) {
+		int tmp = number[start]; // creates tempory variable to hold value during the swap
+		number[start] = number[end];
+		number[end] = tmp;
+
+		start++;
+		end--;
+	}
 }
+
 void printout(int number[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
